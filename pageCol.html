@@ -1,0 +1,208 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dramatic Informational Layout</title>
+
+    <!-- Google Fonts: Syne (Extra Bold 800) for headers, Lora for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Syne:wght@800&display=swap" rel="stylesheet">
+
+    <style>
+        /* Dramatic & Brutalist Design Tokens */
+        :root {
+            --bg-color: #0b0f12; /* Deep, dramatic near-black */
+            --surface-color: #161c22; /* Slightly lighter surface for cards/sections */
+            --text-primary: #f4f4f6; /* Crisp, high-contrast off-white */
+            --text-muted: #94a3b8; /* Muted slate for less important data */
+            --accent-color: #ff3366; /* Electric neon crimson for dramatic focal points */
+
+            --font-display: 'Syne', sans-serif;
+            --font-body: 'Lora', serif;
+        }
+
+        /* Global Resets & Layout */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            line-height: 1.7;
+            font-size: 1.15rem;
+            padding: 4rem 2rem;
+        }
+
+        /* Container tailored for comfortable reading but dramatic impact */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Typography & Dramatic Accents */
+        .kicker {
+            font-family: var(--font-display);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.3em;
+            color: var(--accent-color);
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-family: var(--font-display);
+            font-size: 4rem; /* Massive, dramatic scale */
+            line-height: 0.95;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            margin-bottom: 2.5rem;
+            color: var(--text-primary);
+        }
+
+        /* Accent line across the top of sections */
+        h2 {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            line-height: 1.1;
+            margin-top: 4.5rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            position: relative;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 51, 102, 0.3);
+        }
+
+        p {
+            margin-bottom: 1.75rem;
+        }
+
+        /* Highlighted intro paragraph */
+        .lead-paragraph {
+            font-size: 1.4rem;
+            line-height: 1.6;
+            color: #fff;
+            margin-bottom: 3rem;
+        }
+
+        /* Dramatic, high-contrast informative card */
+        .data-callout {
+            background-color: var(--surface-color);
+            border-left: 6px solid var(--accent-color);
+            padding: 2.5rem;
+            margin: 3.5rem 0;
+            border-radius: 4px;
+            box-shadow: 0 20px 4px -10px rgba(0,0,0,0.5);
+        }
+
+            .data-callout h3 {
+                font-family: var(--font-display);
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+                text-transform: uppercase;
+                letter-spacing: -0.01em;
+            }
+
+        /* List styling with custom dramatic bullets */
+        ul {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+            li::before {
+                content: "—";
+                position: absolute;
+                left: 0;
+                color: var(--accent-color);
+                font-weight: bold;
+            }
+
+        /* Inline emphasis */
+        strong {
+            color: #fff;
+            font-weight: 500;
+            background: linear-gradient(180deg, transparent 70%, rgba(255, 51, 102, 0.2) 30%);
+        }
+
+        /* Link styling */
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+            a:hover {
+                color: #fff;
+                background-color: var(--accent-color);
+                padding: 0 4px;
+            }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            body {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <span class="kicker">Deep Dive Analysis</span>
+        <h1>The Power of Heavy Typography.</h1>
+
+        <p class="lead-paragraph">
+            This layout isn't designed to be polite. It is engineered to capture absolute attention while maintaining a rigorous, highly informative structural integrity.
+        </p>
+
+        <p>
+            When dealing with complex, informative web pages, designers often make the mistake of making everything small, gray, and uniformly neat. True visual interest requires <strong>radical contrast</strong>. By pairing a wide, uncompromising display typeface with an elegant serif, the reading experience transforms from an instruction manual into an editorial feature.
+        </p>
+
+        <h2>Architecting the Information</h2>
+        <p>
+            Good design serves the data. Notice how the spacing before this heading creates a dramatic pause, signaling to the reader's brain that a brand new concept is beginning. The sharp red rule above acts as a hard visual boundary.
+        </p>
+
+        <div class="data-callout">
+            <h3>Critical Takeaway</h3>
+            <p>By boxing this specific piece of data and applying a heavy accent border, we instantly dictate the user's reading hierarchy. They will see this box before they read a single paragraph above it.</p>
+        </div>
+
+        <h2>Core Implementation Principles</h2>
+        <p>If you are adapting your existing raw data into this framework, keep these rules at the forefront of your execution:</p>
+
+        <ul>
+            <li><strong>Limit the line width:</strong> Keep your content container tightly bound to prevent eye strain across wide monitors.</li>
+            <li><strong>Commit to the dark:</strong> The dark slate canvas emphasizes white text effortlessly, demanding focus.</li>
+            <li><strong>Embrace the whitespace:</strong> Do not crowd the elements. Let the massive font choices breathe.</li>
+        </ul>
+
+        <p>Ready to see how your specific content looks under this lens? You can find more documentation on typography mechanics via <a href="https://fonts.google.com/">Google Fonts</a>.</p>
+
+    </div>
+
+</body>
+</html>
