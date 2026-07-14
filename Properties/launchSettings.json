@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "ConsoleForPixmapper": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
