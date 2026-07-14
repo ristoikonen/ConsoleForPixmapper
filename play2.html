@@ -7,6 +7,9 @@
     <!-- Optimized CDN Handshake -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://fonts-gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,100,1,200&icon_names=favorite,home,search,settings,draft,content_copy" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=content_copy" />
 
     <!-- Single Bundled Font Request -->
     <link href="https://googleapis.com/css2?family=Inter:wght@400;600;700&family=Lato:ital,wght@0,400;0,700;1,400&family=Merriweather:ital,wght@0,400;0,700;1,300&family=Montserrat:wght@400;700;800&family=Open+Sans:wght@400;600;700&family=Poppins:wght@400;600;700&family=Roboto:wght@400;500;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
@@ -170,6 +173,14 @@
             font-family: 'Source Sans 3', sans-serif !important;
         }
 
+        .font-meta-merriweather {
+            font-family: 'Merriweather', serif !important;
+            font-size: 18px;
+            color: var(--meta-text);
+            margin-bottom: 4px;
+            font-weight: 400;
+        }
+
         .large-display {
             font-size: 36px;
             line-height: 1.15;
@@ -179,9 +190,10 @@
         }
 
         .font-meta {
-            font-size: 14px;
+            font-size: 18px;
             color: var(--meta-text);
-            margin-bottom: 8px;
+            margin-bottom: 4px;
+            font-weight: 400;
         }
 
         .font-eight {
@@ -394,17 +406,18 @@
         <div class="info-card">
             <h2>Copy links to load these eight fonts from Google's CDN, fast!</h2>
             <p>
-                Fonts.googleapis.com serves the CSS stylesheet showing where in fonts-gstatic.com font host to download the actual font files.
-                Fonts-gstatic.com and googleapis.com are part of Google's' massive, globally distributed Content Delivery Network (CDN).
-                Eight Google's most used fonts listed.
+                Whats is this? 
+                <br/>Get fonts.googleapis.com to serve the CSS stylesheet to fonts-gstatic.com font host to get the actual font files.<br/>
+                Fonts-gstatic.com and googleapis.com are part of Google's' massive, global Content Delivery Network (CDN).
             </p>
         </div>
 
         <!-- Copy Box Component Start -->
         <div class="code-block">
             <div class="code-block-header">
-                <span class="code-lang">Copy HTML into pages HEAD section</span>
-                <button class="copy-btn">Copy</button>
+
+                <span class="code-lang">Copy links of eight fonts into HEAD section of HTML page</span>
+                <button class="copy-btn"><span class="material-symbols-outlined">content_copy</span>Copy</button>
             </div>
             <pre><code class="code-content">&lt;link rel=&quot;preconnect&quot; href=&quot;https://googleapis.com&quot;&gt;
 &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts-gstatic.com&quot; crossorigin&gt;
@@ -522,8 +535,7 @@
             <div class="specimen-side">
                 <h2 class="font-merriweather badge-merriweather">6. Merriweather</h2>
                 <p class="large-display font-merriweather">Editorial Opinion Piece</p>
-                <p class="font-meta">A thick, sturdy serif designed to stay perfectly readable on low-contrast screens.</p>
-                <p class="font-meta" style="font-size: 14px;">Reading font; Blogs, websites and e-books.</p>
+                <p class="font-meta-merriweather">A thick, sturdy serif designed to stay perfectly readable on low-contrast screens.<br />Reading font; Blogs, websites and e-books.</p>
             </div>
             <div class="scenario-side">
                 <div class="canvas-container font-merriweather">
@@ -577,7 +589,7 @@
                 </div>
             </div>
         </div>
-
+        <footer style=" text-align: center;">&copy; Risto Ikonen 2026</footer>
     </div>
 
     <script>
