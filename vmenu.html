@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertical Menu - Material 3</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script type="importmap">
+        {
+          "imports": {
+            "@material/web/": "https://esm.run/@material/web/"
+          }
+        }
+    </script>
+    <script type="module">
+        import '@material/web/all.js';
+        import { styles as typescaleStyles } from '@material/web/typography/md-typescale-styles.js';
+        import '@material/web/menu/menu.js';
+        import '@material/web/menu/menu-item.js';
+
+        /*
+        import '@material/web/button/filled-button.js';
+        import '@material/web/button/outlined-button.js';
+        import '@material/web/iconbutton/icon-button.js';
+        import '@material/web/iconbutton/outlined-icon-button.js';
+                
+        import '@material/web/icon/icon.js';
+        import '@material/web/divider/divider.js';
+        import '@material/web/elevation/elevation.js';
+        */
+
+        //import { styles as typescaleStyles2 } from '@material/web/button/filled-button.js';
+        //import { styles as typescaleStyles3 } from '@material/web/menu/menu.js';
+        //import { styles as typescaleStyles4 } from '@material/web/menu/menu-item.js';
+        //import { styles as typescaleStyles5 } from '@material/web/icon/icon.js';
+        
+
+        document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+        //document.adoptedStyleSheets.push(typescaleStyles2.styleSheet);
+        //document.adoptedStyleSheets.push(typescaleStyles3.styleSheet);
+        //document.adoptedStyleSheets.push(typescaleStyles4.styleSheet);
+        //document.adoptedStyleSheets.push(typescaleStyles5.styleSheet);
+    </script>
+
+</head>
+<body>
+    <span class="container">    </span>
+
+
+        <h2>Material 3 Demo</h2>
+
+        <md-icon-button>
+            <md-icon>check</md-icon>
+        </md-icon-button>
+        <md-filled-icon-button>
+            <md-icon>check</md-icon>
+        </md-filled-icon-button>
+        <md-filled-tonal-icon-button>
+            <md-icon>check</md-icon>
+        </md-filled-tonal-icon-button>
+        <md-outlined-icon-button>
+            <md-icon>check</md-icon>
+        </md-outlined-icon-button>
+
+        <md-icon-button href="https://google.com">
+            <md-icon>check</md-icon>
+        </md-icon-button>
+
+        <!-- Note the position: relative style -->
+        <span style="position: relative">
+            <md-filled-button id="usage-anchor">Set with idref</md-filled-button>
+            <md-menu id="usage-menu" anchor="usage-anchor">
+                <md-menu-item>
+                    <span slot="headline">Apple</span>
+                </md-menu-item>
+                <md-menu-item>
+                    <span slot="headline">Banana</span>
+                </md-menu-item>
+                <md-menu-item>
+                    <span slot="headline">Cucumber</span>
+                </md-menu-item>
+            </md-menu>
+        </span>
+
+
+        <!-- Anchor Button -->
+        <span style="position: relative; inline-size: fit-content;">
+
+            <md-icon-button id="menu-anchor-1" aria-label="Options">
+                <md-icon>more_vert</md-icon>
+            </md-icon-button>
+
+            <!-- Vertical Menu -->
+            <md-menu id="menu-menu-anchor-1" anchor="menu-anchor-1" menu-corner="start-start">
+                <md-menu-item>
+                    <md-icon>edit</md-icon>
+
+                </md-menu-item>
+                <md-menu-item>
+                    <md-icon slot="start">share</md-icon>
+
+                </md-menu-item>
+                <md-divider></md-divider>
+                <md-menu-item>
+                    <md-icon slot="start">delete</md-icon>
+
+                </md-menu-item>
+            </md-menu>
+        </span>
+
+
+
+
+
+
+        <!--<md-outlined-text-field label="Username" required></md-outlined-text-field>
+
+    <label style="display: flex; align-items: center; gap: 8px;">
+        <md-checkbox touch-target="wrapper" checked></md-checkbox>
+        Accept Terms
+    </label>-->
+
+
+
+
+        <script type="module">
+            // This example uses MdMenu.prototype.anchorElement to set the anchor as an
+            // HTMLElement reference.
+            const anchorU = document.body.querySelector('#usage-anchor');
+            const menuU = document.body.querySelector('#usage-menu');
+
+            anchorU.addEventListener('click', () => { menuU.open = !menuU.open; console.log("menuU"); });
+
+            const menu_a1 = document.body.querySelector('#menu-menu-anchor-1');
+            const button_mma1 = document.body.querySelector('#menu-anchor-1');
+
+            button_mma1.addEventListener('click', () => { menu_a1.open = !menu_a1.open; console.log("menu_a1"); });
+
+
+
+            //menuElA1.anchorElement = anchorElA1;
+
+
+
+
+            //button.addEventListener('click', () => {
+            //    menu2.open = !menu2.open; // Toggle menu
+            //    console.log("menu2");
+            //});
+
+        </script>
+
+</body>
+</html>

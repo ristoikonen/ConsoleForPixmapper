@@ -3,27 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dramatic Informational Layout</title>
-
-    <!-- Google Fonts: Syne (Extra Bold 800) for headers, Lora for body -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Syne:wght@800&display=swap" rel="stylesheet">
-
+    <title>Image Gallery</title>
     <style>
-        /* Dramatic & Brutalist Design Tokens */
+        /* ---  #0b0b0b #005146 002723--- */
         :root {
-            --bg-color: #0b0f12; /* Deep, dramatic near-black */
-            --surface-color: #161c22; /* Slightly lighter surface for cards/sections */
-            --text-primary: #f4f4f6; /* Crisp, high-contrast off-white */
-            --text-muted: #94a3b8; /* Muted slate for less important data */
-            --accent-color: #ff3366; /* Electric neon crimson for dramatic focal points */
-
-            --font-display: 'Syne', sans-serif;
-            --font-body: 'Lora', serif;
+            --bg-color: #330902;
+            --text-color: #ffffff;
+            --text-muted: #8c8c8c;
+            --border-color: #262626;
+            --accent-color: #d4af37; /* Luxury gold accent */
+            --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         }
 
-        /* Global Resets & Layout */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -32,177 +23,446 @@
 
         body {
             background-color: var(--bg-color);
-            color: var(--text-primary);
-            font-family: var(--font-body);
-            line-height: 1.7;
-            font-size: 1.15rem;
+            color: var(--text-color);
+            font-family: var(--font-family);
             padding: 4rem 2rem;
+            overflow-x: hidden;
         }
 
-        /* Container tailored for comfortable reading but dramatic impact */
-        .container {
-            max-width: 800px;
+        .gallery-container {
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        /* Typography & Dramatic Accents */
-        .kicker {
-            font-family: var(--font-display);
+        .gallery-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 0.3em;
-            color: var(--accent-color);
-            display: block;
-            margin-bottom: 1rem;
+            text-align: center;
+            margin-bottom: 4rem;
         }
 
-        h1 {
-            font-family: var(--font-display);
-            font-size: 4rem; /* Massive, dramatic scale */
-            line-height: 0.95;
-            font-weight: 800;
-            letter-spacing: -0.04em;
-            margin-bottom: 2.5rem;
-            color: var(--text-primary);
+        /* --- Accordion Functional Layout --- */
+        .gallery-section {
+            border-bottom: 1px solid var(--border-color);
         }
 
-        /* Accent line across the top of sections */
-        h2 {
-            font-family: var(--font-display);
-            font-size: 2.2rem;
-            line-height: 1.1;
-            margin-top: 4.5rem;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.02em;
-            position: relative;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255, 51, 102, 0.3);
-        }
-
-        p {
-            margin-bottom: 1.75rem;
-        }
-
-        /* Highlighted intro paragraph */
-        .lead-paragraph {
-            font-size: 1.4rem;
-            line-height: 1.6;
-            color: #fff;
-            margin-bottom: 3rem;
-        }
-
-        /* Dramatic, high-contrast informative card */
-        .data-callout {
-            background-color: var(--surface-color);
-            border-left: 6px solid var(--accent-color);
-            padding: 2.5rem;
-            margin: 3.5rem 0;
-            border-radius: 4px;
-            box-shadow: 0 20px 4px -10px rgba(0,0,0,0.5);
-        }
-
-            .data-callout h3 {
-                font-family: var(--font-display);
-                font-size: 1.5rem;
-                margin-bottom: 1rem;
-                text-transform: uppercase;
-                letter-spacing: -0.01em;
+            .gallery-section:first-of-type {
+                border-top: 1px solid var(--border-color);
             }
 
-        /* List styling with custom dramatic bullets */
-        ul {
-            list-style: none;
-            margin-bottom: 2rem;
+        .accordion-header {
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: var(--text-color);
+            padding: 1.75rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            text-align: left;
+            outline: none;
+            transition: color 0.3s ease;
         }
 
-        li {
-            position: relative;
-            padding-left: 2rem;
-            margin-bottom: 1rem;
-        }
-
-            li::before {
-                content: "—";
-                position: absolute;
-                left: 0;
+            .accordion-header:hover {
                 color: var(--accent-color);
-                font-weight: bold;
             }
 
-        /* Inline emphasis */
-        strong {
-            color: #fff;
-            font-weight: 500;
-            background: linear-gradient(180deg, transparent 70%, rgba(255, 51, 102, 0.2) 30%);
+        .section-number-title {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
         }
 
-        /* Link styling */
-        a {
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s ease;
+        .section-num {
+            font-size: 0.9rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
         }
 
-            a:hover {
-                color: #fff;
-                background-color: var(--accent-color);
-                padding: 0 4px;
+        .section-title {
+            font-size: 1.15rem;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .view-trigger {
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        /* Smooth Expanding Animation wrapper */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), padding 0.5s ease;
+            padding: 0;
+        }
+
+        .accordion-section.active .accordion-content {
+            /* Handled dynamically via JavaScript for fluid animation, or predefined value */
+            padding-bottom: 2.5rem;
+        }
+
+        .accordion-section.active .view-trigger span {
+            transform: rotate(45deg);
+        }
+
+        /* --- Responsive Grid Layout --- */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+        }
+
+        @media (max-width: 900px) {
+            .grid-container {
+                grid-template-columns: repeat(3, 1fr);
             }
+        }
 
-        /* Responsive adjustments */
         @media (max-width: 600px) {
-            h1 {
-                font-size: 2.8rem;
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .grid-item {
+            position: relative;
+            aspect-ratio: 5 / 4;
+            background-color: #161616;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .grid-item:hover img {
+            transform: scale(1.04);
+        }
+
+        /* --- Fullscreen Lightbox / Slider Modal --- */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(5, 5, 5, 0.98);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+            .lightbox.active {
+                opacity: 1;
+                pointer-events: auto;
             }
 
-            h2 {
-                font-size: 1.8rem;
+        .lightbox-wrapper {
+            position: relative;
+            width: 85%;
+            max-width: 1000px;
+            aspect-ratio: 3 / 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            user-select: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+            .lightbox-img.loaded {
+                opacity: 1;
             }
 
-            body {
-                padding: 2rem 1rem;
+        /* UI Controls */
+        .lightbox-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: transparent;
+            border: none;
+            color: var(--text-color);
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            line-height: 1;
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            color: var(--text-color);
+            font-size: 1.2rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            cursor: pointer;
+            padding: 1rem;
+            color: var(--text-muted);
+            transition: color 0.3s;
+        }
+
+            .slider-btn:hover {
+                color: var(--text-color);
             }
+
+            .slider-btn.prev {
+                left: -5rem;
+            }
+
+            .slider-btn.next {
+                right: -5rem;
+            }
+
+        @media (max-width: 1100px) {
+            .slider-btn.prev {
+                left: 0;
+                transform: translateY(-50%) translateX(-20px);
+            }
+
+            .slider-btn.next {
+                right: 0;
+                transform: translateY(-50%) translateX(20px);
+            }
+        }
+
+        .lightbox-caption {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            text-align: center;
+            max-width: 600px;
+            min-height: 3rem;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <div class="gallery-container">
+        <h1 class="gallery-title">Image Gallery</h1>
 
-        <span class="kicker">Deep Dive Analysis</span>
-        <h1>The Power of Heavy Typography.</h1>
+        <!-- Section 01 -->
+        <div class="accordion-section">
+            <button class="accordion-header">
 
-        <p class="lead-paragraph">
-            This layout isn't designed to be polite. It is engineered to capture absolute attention while maintaining a rigorous, highly informative structural integrity.
-        </p>
 
-        <p>
-            When dealing with complex, informative web pages, designers often make the mistake of making everything small, gray, and uniformly neat. True visual interest requires <strong>radical contrast</strong>. By pairing a wide, uncompromising display typeface with an elegant serif, the reading experience transforms from an instruction manual into an editorial feature.
-        </p>
-
-        <h2>Architecting the Information</h2>
-        <p>
-            Good design serves the data. Notice how the spacing before this heading creates a dramatic pause, signaling to the reader's brain that a brand new concept is beginning. The sharp red rule above acts as a hard visual boundary.
-        </p>
-
-        <div class="data-callout">
-            <h3>Critical Takeaway</h3>
-            <p>By boxing this specific piece of data and applying a heavy accent border, we instantly dictate the user's reading hierarchy. They will see this box before they read a single paragraph above it.</p>
+                <div class="section-number-title">
+                    <span class="section-num">Cars</span>
+                    <span class="section-title" style="padding-left:25px;">
+                        
+                            
+                            <img width="520" height="200" src="https://i.imgur.com/2sRoY8S.png" alt="Gallery 01 Thumbnail 01" />
+                        </span>
+                </div>
+                <div class="view-trigger">+ view</div>
+            </button>
+            <div class="accordion-content">
+                <div class="grid-container">
+                    <!-- Replace placeholders with your actual asset links -->
+                    <div class="grid-item" data-index="0" data-caption="Sparta car.">
+                        <img width="1408" height="768" src="https://i.imgur.com/Mx4npvd.png" alt="SpartaPoTo" />
+                        Sparta
+                    </div>
+                    <div class="grid-item" data-index="1" data-caption="Sparta car.">
+                        <img width="1408" height="768" src="https://i.imgur.com/dtMHkHV.png" alt="SpartaPoTo" />
+                        Sparta Fam
+                    </div>
+                    <div class="grid-item" data-index="2" data-caption="Sparta car.">
+                        <img width="1408" height="768" src="https://i.imgur.com/zNUIxEr.png" alt="SpartaPoTo" />
+                        Sparta
+                    </div>
+                    <div class="grid-item" data-index="3" data-caption="Sparta car.">
+                        <img width="1408" height="768" src="https://i.imgur.com/kF0j8kk.png" alt="SpartaPoTo" />
+                        Tonkna
+                    </div>
+                    <div class="grid-item" data-index="4" data-caption="Sparta car.">
+                        <img width="1408" height="768" src="https://i.imgur.com/E3aYOJg.png" alt="SpartaPoTo" />
+                        Tonkna
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <h2>Core Implementation Principles</h2>
-        <p>If you are adapting your existing raw data into this framework, keep these rules at the forefront of your execution:</p>
+        <!-- Section 02 -->
+        <div class="accordion-section">
+            <button class="accordion-header">
+                <div class="section-number-title">
+                    <span class="section-num">Nature</span>
+                    <span class="section-title" style="padding-left:10px;">
+                        <img width="520" height="200" src="https://i.imgur.com/OP5OVag.png" alt="After fire" />
+                    </span>
+                    
+                </div>
+                <div class="view-trigger">+ view</div>
+            </button>
+            <div class="accordion-content">
+                <div class="grid-container">
+                    <div class="grid-item" data-index="5" data-caption="After Fire">
+                        <img width="1408" height="768" src="https://i.imgur.com/pMhY69f.jpeg" alt="After Fire" />
+                        After Fire
+                    </div>
+                    <div class="grid-item" data-index="6" data-caption="Murramarang">
+                        <img width="1408" height="768" src="https://i.imgur.com/yNvcTDJ.jpeg" alt="Murramarang" />
+                        Murramarang
+                    </div>
+                    <div class="grid-item" data-index="7" data-caption="Banksias">
+                        <img width="1408" height="768" src="https://i.imgur.com/lYjK3Vp.png" alt="Banksias" />
+                        Banksias
+                    </div>
+                    <div class="grid-item" data-index="8" data-caption="Rest">
+                        <img width="1408" height="768" src="https://i.imgur.com/bZTw2zW.png" alt="Rest" />
+                        Rest
+                    </div>
+                    <div class="grid-item" data-index="9" data-caption="Spotted Gums">
+                        <img width="1408" height="768" src="https://i.imgur.com/BekJtvH.jpeg" alt="Spotted Gums" />
+                        Spotted Gums
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
 
-        <ul>
-            <li><strong>Limit the line width:</strong> Keep your content container tightly bound to prevent eye strain across wide monitors.</li>
-            <li><strong>Commit to the dark:</strong> The dark slate canvas emphasizes white text effortlessly, demanding focus.</li>
-            <li><strong>Embrace the whitespace:</strong> Do not crowd the elements. Let the massive font choices breathe.</li>
-        </ul>
-
-        <p>Ready to see how your specific content looks under this lens? You can find more documentation on typography mechanics via <a href="https://fonts.google.com/">Google Fonts</a>.</p>
 
     </div>
 
+    <!-- Lightbox Modal DOM Markup -->
+    <div class="lightbox" id="lightboxModal">
+        <button class="lightbox-close" id="closeBtn">&times;</button>
+        <button class="slider-btn prev" id="prevBtn">Back</button>
+
+        <div class="lightbox-wrapper">
+            <img src="" alt="Fullscreen View" class="lightbox-img" id="lightboxImg">
+        </div>
+
+        <button class="slider-btn next" id="nextBtn">Next</button>
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- 1. Accordion Toggle Logic ---
+            const headers = document.querySelectorAll('.accordion-header');
+
+            headers.forEach(header => {
+                header.addEventListener('click', function() {
+                    const section = this.parentElement;
+                    const content = this.nextElementSibling;
+                    const triggerText = this.querySelector('.view-trigger');
+
+                    section.classList.toggle('active');
+
+                    if (section.classList.contains('active')) {
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                        triggerText.innerHTML = '<span>&times;</span> close';
+                    } else {
+                        content.style.maxHeight = '0px';
+                        triggerText.innerHTML = '+ view';
+                    }
+                });
+            });
+
+            // --- 2. Lightbox Carousel Logic ---
+            const gridItems = Array.from(document.querySelectorAll('.grid-item'));
+            const lightbox = document.getElementById('lightboxModal');
+            const lightboxImg = document.getElementById('lightboxImg');
+            const lightboxCaption = document.getElementById('lightboxCaption');
+            const closeBtn = document.getElementById('closeBtn');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            let currentIndex = 0;
+
+            function updateLightbox(index) {
+                lightboxImg.classList.remove('loaded');
+                currentIndex = index;
+
+                const currentItem = gridItems[currentIndex];
+                const highResSrc = currentItem.querySelector('img').src;
+                console.log(highResSrc);
+                const captionText = currentItem.getAttribute('data-caption');
+
+                lightboxImg.src = highResSrc;
+                lightboxCaption.textContent = captionText || "";
+
+                lightboxImg.onload = () => {
+                    lightboxImg.classList.add('loaded');
+                };
+            }
+
+            gridItems.forEach((item, index) => {
+                item.addEventListener('click', () => {
+                    lightbox.classList.add('active');
+                    document.body.style.overflow = 'hidden'; // Lock background scroll
+                    updateLightbox(index);
+                });
+            });
+
+            // Close actions
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+                lightboxImg.src = '';
+            }
+
+            closeBtn.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) closeLightbox();
+            });
+
+            // Navigation actions
+            prevBtn.addEventListener('click', () => {
+                let nextIdx = currentIndex - 1;
+                if (nextIdx < 0) nextIdx = gridItems.length - 1;
+                updateLightbox(nextIdx);
+            });
+
+            nextBtn.addEventListener('click', () => {
+                let nextIdx = currentIndex + 1;
+                if (nextIdx >= gridItems.length) nextIdx = 0;
+                updateLightbox(nextIdx);
+            });
+
+            // Keyboard navigation binds
+            document.addEventListener('keydown', (e) => {
+                if (!lightbox.classList.contains('active')) return;
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowRight') nextBtn.click();
+                if (e.key === 'ArrowLeft') prevBtn.click();
+            });
+        });
+    </script>
 </body>
 </html>
